@@ -1,0 +1,156 @@
+/*le damos forma y estilo al cuerpo dal formulario*/
+.formu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  background-color: #333333;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  border-color: black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: 2px solid #5FA8C0;
+}
+/*agregamos formas y las animamos (circulo)*/
+.formtxt {
+  font-size: 28px;
+  color: #5FA8C0;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.formtxt::before,.formtxt::after {
+position: relative;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #5FA8C0;
+}
+
+.formtxt::before {
+transform: translate(-140px, 32px);
+  width: 18px;
+  height: 18px;
+  background-color: #5FA8C0;
+}
+
+.formtxt::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+/*todos los divs que contienen label + input/select*/
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+form > div > label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #F5F5F5;
+}
+
+/* Inputs y selects (casilleros) */
+input,
+select {
+  padding: 10px;
+  background-color:#5FA8C0;;
+  border: 1px solid #F5F5F5;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+input{
+    color: #E3F2FD;
+    text-shadow: 0 0 3px black;
+    font-weight: 700;
+}
+
+select{
+    color: #E3F2FD;
+    text-shadow: 0 0 3px black;
+    font-weight: 700;
+}
+
+option{
+    color: #E3F2FD;
+    text-shadow: 0 0 3px black;
+    font-weight: 700;
+}
+
+input:focus,
+select:focus {
+  border-color: #5EB8D0;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+
+/* Botones de restaurar y enviar */
+button {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #253137;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-right: 10px;
+}
+
+.rest {
+ background-color: rgb(237, 111, 111);
+ font-weight: 700;
+}
+
+.subt{
+background-color: rgb(135, 239, 135);
+font-weight: 700;
+
+}
+
+.rest:hover {
+  background-color: rgb(244, 44, 44);
+  color: #F5F5F5;
+  font-weight: 700;
+}
+
+.subt:hover{
+    background-color: rgb(45, 179, 45);
+    color: #F5F5F5;
+    font-weight: 700;
+}
+/* Contenedor para los botones para que esten juntos */
+.flex {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+/*parte de la animacion y posicion del circulo*/
+@keyframes pulse {
+  from {
+    transform: translate(-140px, -23px) scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-140px, -23px) scale(1.8);
+    opacity: 0;
+  }
+}

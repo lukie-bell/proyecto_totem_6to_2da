@@ -1,10 +1,10 @@
 import React from "react";
 import TurnoFormulario from "./components/TurnoFormulario"
+import "../src/css/Formulario.css";
 
 function App() {
   return (
-    <div>
-      <h1>Formulario de Turno</h1>
+    <div >
       <TurnoFormulario></TurnoFormulario>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import "../css/Formulario.css";
 
 //Función para establecer la fecha actual como fecha predeterminada.
 const FechaActual = () => {
@@ -68,14 +68,17 @@ const restaurar = () => {
 
 //Estructura del formulario 
 return(
-    <form onSubmit={handleSubmit}>
-        <div>
+    <form onSubmit={handleSubmit} className="formu">
+        
+        <div className="formtxt">Formulario de turno</div>
+
             <div>
             <label>Nombre</label>
             <input type="text"
             value={nombre}
             onChange={(e)=>setNombre(e.target.value)}/>
         </div>
+        <div>
             <label>DNI:</label>
             <input type="number"
             value={dni}
@@ -103,8 +106,8 @@ return(
             onChange={(e)=>setAclaracion(e.target.value)}/>
         </div>
 
-        <button type="button" onClick={restaurar}>Restaurar</button>
-        <button type="submit">Enviar</button>
+        <button className="rest" type="button" onClick={restaurar}>Restaurar</button>
+        <button className="subt" type="submit">Enviar</button>
     </form>
 );
 };
