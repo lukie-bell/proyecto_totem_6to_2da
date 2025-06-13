@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate  } from "react-router-dom";
 import "../css/Formulario.css";
 
 //Función para establecer la fecha actual como fecha predeterminada.
@@ -20,10 +21,12 @@ const TurnoFormulario = () =>{
     const[motivo, setMotivo] = useState("");
     const[aclaracion, setAclaracion] = useState("");
 
+    const navigate = useNavigate(); //Eli:variable para guardar el uso del navigate
 //Alertas para errores del usuario
 const handleSubmit = (e) =>{
     e.preventDefault();
-    
+
+
     if(nombre.trim() === ""){
         alert("Campo nombre no completado")
         return;
@@ -53,7 +56,11 @@ const handleSubmit = (e) =>{
         return;
     }
 
-    alert("Formulario enviado")
+    //Eli: El "IF" de abajo lo agrege para solo el formulario este BIEN hecho solo pueda ser enviado
+    if((nombre.trim() !== "") , ( dni.trim() !== ""), (fecha.trim() === ""), (motivo.trim() === ""), (aclaracion.trim() !== "")){
+        alert("Formulario enviado")
+        navigate("/PantallaRecibida", { state: { nombre } }); //Eli: cuando se envia el formulario pasa a la siguiente pantalla
+    }
 };
 
 
