@@ -44,6 +44,16 @@ const handleSubmit = (e) =>{
         alert("Campo nombre no completado");
         return;
     }
+
+
+    //variable para verificar que el campo tenga unicamente letras.
+    const letras = /^[a-zA-Z\s]+$/;
+
+    //Condicional para verificar que el nombre ingrsado por el usuario contenga unicamente letras.
+    if (!letras.test(nombre.trim())){
+    alert("El nombre no puede contener números.");
+    return;
+    }
     
     
     if(dni.trim() === ""){
@@ -53,9 +63,20 @@ const handleSubmit = (e) =>{
 
     const DNI =  Number(dni);
 
+    if (isNaN(dni)) {
+    alert("El DNI no puede contener letras.");
+    return;
+    }
+    
     if ( DNI < 0) {
       alert("El DNI no puede ser negativo.");
       return;
+    }
+
+
+    if ( dni.length !== 8){
+        alert("El DNI debe tener 8 numeros.");
+        return;
     }
 
     
@@ -78,7 +99,7 @@ const handleSubmit = (e) =>{
     }
 
     //Eli: El "IF" de abajo lo agrege para solo el formulario este BIEN hecho solo pueda ser enviado
-    if((nombre.trim() !== "") , ( dni.trim() !== ""), (fecha.trim() === ""), (motivo.trim() === ""), (aclaracion.trim() !== "")){
+    if((nombre.trim() !== "") && ( dni.trim() !== "") && (fecha.trim() !== "") && (motivo.trim() !== "")){
         alert("Formulario enviado")
         navigate("/PantallaRecibida", { state: { nombre } }); //Eli: cuando se envia el formulario pasa a la siguiente pantalla
     }
@@ -102,7 +123,7 @@ return(
             <div className="formtxt">Formulario de turno</div>
 
                 <div>
-                <label>Nombre</label>
+                <label>Nombre:</label>
                 <input type="text"
                 value={nombre}
                 onChange={(e)=>setNombre(e.target.value)}/>
