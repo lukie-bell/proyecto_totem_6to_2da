@@ -1,9 +1,16 @@
+.formulario{
+  display: flex;
+  justify-content: center;  /* centra horizontalmente */
+  align-items: center;      /* centra verticalmente */
+  height: 100vh;            /* altura completa de la pantalla */
+}
+
 /*le damos forma y estilo al cuerpo dal formulario*/
 .formu {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 500px;
+  min-width: 600px;
   background-color: #333333;
   padding: 20px;
   border-radius: 20px;
