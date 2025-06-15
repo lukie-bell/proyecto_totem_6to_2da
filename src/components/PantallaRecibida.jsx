@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import '../styles/PantallaRecibida.css';
-import epet20Logo from '../assets/epet20logo.jpg'; 
+import epet20Logo from '../assets/epet20logo.png'; 
 
 const $tiempo =document.querySelector('.tiempo'),
 $fecha = document.querySelector('.fecha');
