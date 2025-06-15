@@ -1,0 +1,24 @@
+/* sebas del futuro acordate despues poner nombres de variables mas entendibles :D*/
+.cajadecajas {
+    display: flex;
+    gap: 10px; 
+    align-items: center;
+}
+
+.cajas {
+    width: 500px;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    background-color: lightblue;
+}
+
+.citas{
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+    border-radius: 20%;
+    background-color: blue;
+}
