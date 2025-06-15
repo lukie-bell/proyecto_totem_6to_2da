@@ -1,41 +1,66 @@
-
 // src/components/PantallaRecibida.jsx
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-//variables para poder usar el reloj para el head de la pagina
+import '../styles/PantallaRecibida.css';
+import epet20Logo from '../assets/epet20logo.jpg'; 
+
 const $tiempo =document.querySelector('.tiempo'),
 $fecha = document.querySelector('.fecha');
-/*
-function relojDigital (){ //reloj virtual
-    let f= new Date(),
-    dia = f.getDate(),
-    mes = f.getMonth() + 1,
-    anio = f.getFullYear(),
-    DiaSemana = f.getDay();
 
-    dia = ('0' + dia).slice(-2);
-    mes = ('0' + mes).slice(-2)
-
-    let timeString = f.toLocaleDateString();
-    $tiempo.innerHTML = timeString;
-
-    let semana = ['lunes','martes','miercoles','jueves','viernes','sabado','domingo'];
-    let showSemana =(semana[DiaSemana]);
-    $fecha.innerHTML =`${dia}/${mes}/${anio} ${showSemana}`
-}
-setInterval(() => {
-relojDigital ();
-}, 1000);
-*/
 const PantallaRecibida = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const { nombre } = location.state || {};
 
+    const [currentTime, setCurrentTime] = useState("");
+
+    useEffect(() => {
+        const updateClock = () => {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            setCurrentTime(`${hours}:${minutes}`);
+        };
+
+        updateClock();
+        const intervalId = setInterval(updateClock, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const handleEmployeeClick = () => {
+        navigate('/employee-dashboard');
+    };
+
+    const handleUserClick = () => {
+        navigate('/user-dashboard');
+    };
+
     return (
-    <div>
-        <h1>¡Hola, {nombre}!</h1>
-    </div>
+        <div className="pantalla-recibida-wrapper">
+            <header className="header">
+                <div className="header-left">
+                    <img src={epet20Logo} alt="E.P.E.T. N° 20 Logo" className="school-logo" />
+                    <span className="school-name">E.P.E.T. N° 20</span>
+                </div>
+                <div className="header-center">
+                    <button className="header-button" onClick={handleEmployeeClick}>Empleado</button>
+                    <button className="header-button" onClick={handleUserClick}>Usuario</button>
+                </div>
+                <div className="header-right">
+                    {currentTime}
+                </div>
+            </header>
+
+            <main className="main-content">
+                <div className="message-box">
+                    <p>Su turno fue cargado correctamente.</p>
+                    <p>Gracias por usar.</p>
+                    <p>Que tenga un buen día.</p>
+                </div>
+            </main>
+        </div>
     );
 };
 export default PantallaRecibida;
