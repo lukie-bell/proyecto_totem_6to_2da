@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;  /* centra horizontalmente */
   align-items: center;      /* centra verticalmente */
-  height: 100vh;            /* altura completa de la pantalla */
+  height: auto;            /* altura automatica en la pantalla */
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
@@ -106,7 +106,24 @@ select:focus {
   border-color: #5EB8D0;
   box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
 }
+/*textarea (tamaño y estilo) */
+textarea {
+  padding: 10px;
+  background-color: #5FA8C0;
+  border: 1px solid #F5F5F5;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  color: #E3F2FD;
+  text-shadow: 0 0 3px black;
+  font-weight: 700;
+  resize: vertical; 
+}
 
+textarea:focus {
+  border-color: #5EB8D0;
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
 /* Botones de restaurar y enviar */
 button {
   border: none;
@@ -161,4 +178,14 @@ font-weight: 700;
     opacity: 0;
   }
 }
+/* estilo pra las alertas*/
+.input-error {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
 
+.mensaje-error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}

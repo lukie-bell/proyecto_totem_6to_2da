@@ -140,7 +140,7 @@ return(
             </div>
             <div>
                 <label>Aclaración:</label>
-                <textarea rows="4" cols="5" maxLength={300}
+                <textarea rows="4" cols="5" maxLength={1000}
                 value={aclaracion}
                 onChange={(e)=>setAclaracion(e.target.value)}/>
             </div>
