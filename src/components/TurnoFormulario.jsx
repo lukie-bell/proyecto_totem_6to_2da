@@ -35,76 +35,60 @@ const TurnoFormulario = () =>{
     const[aclaracion, setAclaracion] = useState("");
 
     const navigate = useNavigate(); //Eli:variable para guardar el uso del navigate
+
 //Alertas para errores del usuario
-const handleSubmit = (e) =>{
-    e.preventDefault();
+const [errores, setErrores] = useState({});
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const errores = {};
 
-
-    if(nombre.trim() === ""){
-        alert("Campo nombre no completado");
-        return;
-    }
-
-
-    //variable para verificar que el campo tenga unicamente letras.
+//Alerta nombre
+  if (nombre.trim() === "") {
+    errores.nombre = "Campo nombre no completado";
+  } else {
     const letras = /^[a-zA-Z\s]+$/;
-
-    //Condicional para verificar que el nombre ingrsado por el usuario contenga unicamente letras.
-    if (!letras.test(nombre.trim())){
-    alert("El nombre no puede contener números.");
-    return;
+    if (!letras.test(nombre.trim())) {
+      errores.nombre = "El nombre no puede contener números.";
     }
-    
-    
-    if(dni.trim() === ""){
-        alert("Campo DNI no completado");
-        return;
+  }
+
+  //Alerta dni
+  if (dni.trim() === "") {
+    errores.dni = "Campo DNI no completado";
+  } else {
+    const DNI = Number(dni);
+    if (isNaN(DNI)) {
+      errores.dni = "El DNI no puede contener letras.";
+    } else if (DNI < 0) {
+      errores.dni = "El DNI no puede ser negativo.";
+    } else if (dni.length !== 8) {
+      errores.dni = "El DNI debe tener 8 números.";
     }
+  }
 
-    const DNI =  Number(dni);
-
-    if (isNaN(dni)) {
-    alert("El DNI no puede contener letras.");
-    return;
-    }
-    
-    if ( DNI < 0) {
-      alert("El DNI no puede ser negativo.");
-      return;
-    }
-
-
-    if ( dni.length !== 8){
-        alert("El DNI debe tener 8 numeros.");
-        return;
-    }
-
-    
-    if(fecha.trim() === ""){
-        alert("Campo fecha no completado");
-        return;
-    }
-
+  //Alerta fecha
+  if (fecha.trim() === "") {
+    errores.fecha = "Campo fecha no completado";
+  } else {
     const fechausuario = new Date(fecha);
     const fechamax = new Date(FechaMax());
-    
-    if(fechausuario > fechamax){
-        alert(`La fecha no es valida, fecha máxima: ${fechamax}`);
+    if (fechausuario > fechamax) {
+      errores.fecha = `La fecha no es válida, fecha máxima: ${fechamax.toLocaleString()}`;
     }
+  }
 
-    
-    if(motivo.trim() === ""){
-        alert("Campo motivo no completado");
-        return;
-    }
+  if (motivo.trim() === "") {
+    errores.motivo = "Campo motivo no completado";
+  }
 
-    //Eli: El "IF" de abajo lo agrege para solo el formulario este BIEN hecho solo pueda ser enviado
-    if((nombre.trim() !== "") && ( dni.trim() !== "") && (fecha.trim() !== "") && (motivo.trim() !== "")){
-        alert("Formulario enviado")
-        navigate("/PantallaRecibida", { state: { nombre } }); //Eli: cuando se envia el formulario pasa a la siguiente pantalla
-    }
+  // Guardado de errores para mostrarlo despues
+  setErrores(errores);
+
+  if (Object.keys(errores).length === 0) {
+    alert("Formulario enviado");
+    navigate("/PantallaRecibida", { state: { nombre } });
+  }
 };
-
 
 //Función del boton restaurar.
 const restaurar = () => {
@@ -127,21 +111,22 @@ return(
                 <input type="text"
                 value={nombre}
                 onChange={(e)=>setNombre(e.target.value)}/>
+                 {errores.nombre && <p className="mensaje-error">{errores.nombre}</p>}
             </div>
             <div>
                 <label>DNI:</label>
                 <input type="text" maxLength={8}
                 value={dni}
                 onChange={(e)=>setDNI(e.target.value)}/>
+                 {errores.dni && <p className="mensaje-error">{errores.dni}</p>}
             </div>
             <div>
                 <label>Fecha:</label>
                 <input type="datetime-local"
                 value={fecha}
                 onChange={(e)=>setFecha(e.target.value)}
-                min={FechaActual()}
-                />
-                
+                min={FechaActual()}/>
+                 {errores.fecha && <p className="mensaje-error">{errores.fecha}</p>}
             </div>
             <div>
                 <label>Motivo:</label>
@@ -151,6 +136,7 @@ return(
                     <option value="opcion2">Hablar con un regente.</option>
                     <option value="opcion3">Hablar con un directivo.</option>
                 </select>
+                 {errores.motivo && <p className="mensaje-error">{errores.motivo}</p>}
             </div>
             <div>
                 <label>Aclaración:</label>
