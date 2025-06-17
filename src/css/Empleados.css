@@ -1,24 +1,62 @@
-/* sebas del futuro acordate despues poner nombres de variables mas entendibles :D*/
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #D1EDF9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal que alinea en fila */
 .cajadecajas {
     display: flex;
-    gap: 10px; 
-    align-items: center;
-}
-
-.cajas {
-    width: 500px;
-    height: 500px;
-    align-items: center;
+    flex-direction: row; /* Los hijos se alinean horizontalmente */
     justify-content: center;
-    border-radius: 10%;
-    background-color: lightblue;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap; /* Opcional, permite que bajen si no entra todo */
 }
 
-.citas{
-    width: auto;
-    height: auto;
-    align-items: center;
-    justify-items: center;
-    border-radius: 20%;
-    background-color: blue;
-}
+/* Caja individual */
+    .cajas {
+      background-color: #333;
+      border-radius: 20px;
+      width: 900px;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .citas {
+      background-color: #A1DDF0;
+      color: black;
+      border: 10px #333;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      padding: 10px;
+      margin: 20px;
+      display: inline-block;
+      box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+    }
+
+    .eliminar-btn {
+      background-color: #F28B82;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .eliminar-btn:hover {
+      background-color: #e06666;
+    }

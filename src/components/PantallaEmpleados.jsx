@@ -90,7 +90,7 @@ const PantallaEmpleados = () => {
                                 <p><strong>Fecha: </strong>{formulario.fecha} </p>
                                 <p><strong>Motivo </strong>{formulario.motivo}</p>
                                 <p><strong>aclaracion</strong>{formulario.aclaracion}</p>
-                                 <button onClick={() => borrarItem(formulario.id)}>Eliminar</button>
+                                <button onClick={() => borrarItem(formulario.id)} className="eliminar-btn" >Eliminar</button>
                             </div>
                         )) }
                     </div>

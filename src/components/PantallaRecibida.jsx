@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import '../styles/PantallaRecibida.css';
-import epet20Logo from '../assets/epet20logo.png'; 
+/*import epet20Logo from '../assets/epet20logo.png'; */
 
 const $tiempo =document.querySelector('.tiempo'),
 $fecha = document.querySelector('.fecha');
@@ -37,11 +37,12 @@ const PantallaRecibida = () => {
         navigate('/user-dashboard');
     };
 
+    /*Linea 43: <img src={epet20Logo} alt="E.P.E.T. N° 20 Logo" className="school-logo" />*/
     return (
         <div className="pantalla-recibida-wrapper">
             <header className="header">
                 <div className="header-left">
-                    <img src={epet20Logo} alt="E.P.E.T. N° 20 Logo" className="school-logo" />
+                    
                     <span className="school-name">E.P.E.T. N° 20</span>
                 </div>
                 <div className="header-center">
