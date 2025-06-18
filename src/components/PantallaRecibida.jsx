@@ -1,8 +1,8 @@
 // src/components/PantallaRecibida.jsx
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./../css/PantallaRecibida.css";
 
-import '../styles/PantallaRecibida.css';
 /*import epet20Logo from '../assets/epet20logo.png'; */
 
 const $tiempo =document.querySelector('.tiempo'),
@@ -30,11 +30,11 @@ const PantallaRecibida = () => {
     }, []);
 
     const handleEmployeeClick = () => {
-        navigate('/employee-dashboard');
+        navigate('/PantallaEmpleados');
     };
 
     const handleUserClick = () => {
-        navigate('/user-dashboard');
+        navigate('/TurnoFormulario');
     };
 
     /*Linea 43: <img src={epet20Logo} alt="E.P.E.T. N° 20 Logo" className="school-logo" />*/

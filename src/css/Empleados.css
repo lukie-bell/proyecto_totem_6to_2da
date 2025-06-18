@@ -8,6 +8,32 @@ body {
     height: 100vh;
 }
 
+.partedearriba{
+    background-color: #1a5b81;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3;
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 75px;
+}
+
+.caja1{
+    grid-column: 1;
+}
+
+.caja2{
+    grid-column: 2;
+}
+
+.caja3{
+    grid-column: 3;
+}
+
+
 /* Contenedor principal que alinea en fila */
 .cajadecajas {
     display: flex;

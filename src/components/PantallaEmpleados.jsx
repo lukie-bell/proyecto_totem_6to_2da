@@ -1,6 +1,5 @@
 import React from "react";
-import { useNavigate  } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate} from "react-router-dom";
 import  "../css/Empleados.css";
 import { useState, useEffect } from 'react';
 //No se por que en esta version tarda en eliminarse la burbujita despues lo arreglare
@@ -9,7 +8,10 @@ import { useState, useEffect } from 'react';
 const PantallaEmpleados = () => {
     const location = useLocation();
     const { nombre, dni, fecha, motivo, aclaracion } = location.state || {};
-     
+
+    // Inicializamos el hook useNavigate
+   const navigate = useNavigate();
+
     //seba:establesco esta tabla de ejemplo para probar el filtro y no recurrir a un json 
     const [lista, setLista] = useState ([ 
         {
@@ -37,6 +39,23 @@ const PantallaEmpleados = () => {
             aclaracion: "Hablar con un preceptor."
         }
     ]);
+
+    //el reloj que tome del codigo de benites
+    const [currentTime, setCurrentTime] = useState("");
+    
+        useEffect(() => {
+            const updateClock = () => {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                setCurrentTime(`${hours}:${minutes}`);
+            };
+    
+            updateClock();
+            const intervalId = setInterval(updateClock, 1000);
+    
+            return () => clearInterval(intervalId);
+        }, []);
 
     //seba: ordena la lista de la fecha mas proxima a la mas lejana
    const listaOrdenada = lista.sort((a, b) => {
@@ -77,9 +96,33 @@ const PantallaEmpleados = () => {
     setLista(listaOrdenada);
     }, [lista]);
 
+    //establece las rutas de los botones
+    const handleEmployeeClick = () => {
+        navigate('/PantallaEmpleados');
+    };
+
+    const handleUserClick = () => {
+        navigate('/TurnoFormulario');
+    };
+
    return (
         <div>
-            <h1>parte de arriba {nombre}</h1>
+            <div className="partedearriba">
+                <div className="caja1">
+                    <h1>E.P.E.T.Nº20</h1>
+                </div>
+                <div className="caja2">
+                    <div className="header-center">
+                        <button className="header-button" onClick={handleEmployeeClick}>Empleado</button>
+                        <button className="header-button" onClick={handleUserClick}>Usuario</button>
+                    </div>
+                </div> 
+                <div className="caja3">
+                    <div className="header-right">
+                        {currentTime}
+                    </div>
+                </div>
+            </div>
             <div className="cajadecajas">
                 <div className="cajas"><h2>turnos</h2>
                     <div className="lista">
