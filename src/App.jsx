@@ -3,17 +3,19 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PantallaRecibida from "./components/PantallaRecibida"
 import TurnoFormulario from "./components/TurnoFormulario"
+import Autentificacion from "./components/login_empleados";
 import "../src/css/Formulario.css";
 import PantallaEmpleados from "./components/PantallaEmpleados";
 
 function App() {
-    //ELI: lineas comentas por numero 12:Es la primera pantalla 13: Lanza activa la siguiente pantalla :> FUNCIONO SE PUDOOOOOOO 
+  //ELI: lineas comentas por numero 12:Es la primera pantalla 13: Lanza activa la siguiente pantalla :> FUNCIONO SE PUDOOOOOOO 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TurnoFormulario />} />
-        <Route path="/PantallaRecibida" element={<PantallaRecibida />} />
-        <Route path="/PantallaEmpleados" element={<PantallaEmpleados />} />
+        <Route path="/" element={<TurnoFormulario/>} />
+        <Route path="/PantallaRecibida" element={<PantallaRecibida/>} />
+        <Route path="/PantallaEmpleados" element={<PantallaEmpleados/>} />
+        <Route path="/login" element={<Autentificacion/>} />
       </Routes>
     </BrowserRouter>
   );

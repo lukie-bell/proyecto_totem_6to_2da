@@ -30,7 +30,7 @@ const PantallaRecibida = () => {
     }, []);
 
     const handleEmployeeClick = () => {
-        navigate('/PantallaEmpleados');
+        navigate('/login');
     };
 
     const handleUserClick = () => {

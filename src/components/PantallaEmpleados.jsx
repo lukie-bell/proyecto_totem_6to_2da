@@ -10,7 +10,7 @@ const PantallaEmpleados = () => {
     const { nombre, dni, fecha, motivo, aclaracion } = location.state || {};
 
     // Inicializamos el hook useNavigate
-   const navigate = useNavigate();
+    const navigate = useNavigate();
 
     //seba:establesco esta tabla de ejemplo para probar el filtro y no recurrir a un json 
     const [lista, setLista] = useState ([ 
@@ -102,7 +102,7 @@ const PantallaEmpleados = () => {
     };
 
     const handleUserClick = () => {
-        navigate('/TurnoFormulario');
+        navigate('/');
     };
 
    return (
