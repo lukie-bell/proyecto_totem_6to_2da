@@ -9,9 +9,6 @@ const PantallaEmpleados = () => {
     const location = useLocation();
     const { nombre, dni, fecha, motivo, aclaracion } = location.state || {};
 
-    // Inicializamos el hook useNavigate
-    const navigate = useNavigate();
-
     //seba:establesco esta tabla de ejemplo para probar el filtro y no recurrir a un json 
     const [lista, setLista] = useState ([ 
         {
@@ -40,22 +37,6 @@ const PantallaEmpleados = () => {
         }
     ]);
 
-    //el reloj que tome del codigo de benites
-    const [currentTime, setCurrentTime] = useState("");
-    
-        useEffect(() => {
-            const updateClock = () => {
-                const now = new Date();
-                const hours = String(now.getHours()).padStart(2, '0');
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-                setCurrentTime(`${hours}:${minutes}`);
-            };
-    
-            updateClock();
-            const intervalId = setInterval(updateClock, 1000);
-    
-            return () => clearInterval(intervalId);
-        }, []);
 
     //seba: ordena la lista de la fecha mas proxima a la mas lejana
    const listaOrdenada = lista.sort((a, b) => {
@@ -96,33 +77,8 @@ const PantallaEmpleados = () => {
     setLista(listaOrdenada);
     }, [lista]);
 
-    //establece las rutas de los botones
-    const handleEmployeeClick = () => {
-        navigate('/PantallaEmpleados');
-    };
-
-    const handleUserClick = () => {
-        navigate('/');
-    };
-
    return (
         <div>
-            <div className="partedearriba">
-                <div className="caja1">
-                    <h1>E.P.E.T.Nº20</h1>
-                </div>
-                <div className="caja2">
-                    <div className="header-center">
-                        <button className="header-button" onClick={handleEmployeeClick}>Empleado</button>
-                        <button className="header-button" onClick={handleUserClick}>Usuario</button>
-                    </div>
-                </div> 
-                <div className="caja3">
-                    <div className="header-right">
-                        {currentTime}
-                    </div>
-                </div>
-            </div>
             <div className="cajadecajas">
                 <div className="cajas"><h2>turnos</h2>
                     <div className="lista">

@@ -86,7 +86,7 @@ const handleSubmit = (e) => {
 
   if (Object.keys(errores).length === 0) {
     alert("Formulario enviado");
-    navigate("/PantallaRecibida", { state: { nombre } });
+    navigate("/Recibido", { state: { nombre } });
   }
 };
 
