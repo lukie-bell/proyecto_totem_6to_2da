@@ -9,6 +9,7 @@
     line-height: 1.5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 50px;
+    border: 5px solid #5FA8C0;
 }
 
 .ini{ 
@@ -18,7 +19,7 @@
   padding: 0px 24px;
   border: none;
   border-radius: 10px;
-  background: #fff;
+  background: #F5F5F5;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
@@ -36,16 +37,60 @@ button{
 }
 
 img{
-    transform: translate(-90px, 5px);
+    transform: translate(-92px, 5px);
     width: 30px;
     height: 30px;
 }
 
 p{
-   transform: translate(20px, -40px);
+   transform: translate(17px, -40px);
 }
 
 h1{
     font-size: 40px;
-    color:#fff;
+    color:#F5F5F5;
+}
+
+input::placeholder{
+    color:#F5F5F5;
+}
+
+button:hover{
+    background-color: #D1EDF9;
+}
+
+.message-box h1 {
+    font-size: 3rem;
+    color: #5FA8C0; /* color base neón */
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: neonPulse 1.8s infinite alternate;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow: 
+            0 0 5px #F5F5F5,
+            0 0 10px #F5F5F5,
+            0 0 20px #F5F5F5,
+            0 0 40px #F5F5F5;
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 10px #F5F5F5,
+            0 0 20px #F5F5F5,
+            0 0 40px #F5F5F5,
+            0 0 60px #F5F5F5;
+        transform: scale(1.05);
+    }
+    100% {
+        text-shadow: 
+            0 0 5px #F5F5F5,
+            0 0 10px #F5F5F5
+            0 0 20px #F5F5F5,
+            0 0 40px #F5F5F5;
+        transform: scale(1);
+    }
 }
