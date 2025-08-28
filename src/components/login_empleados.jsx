@@ -3,7 +3,7 @@ import {autenticacion, autenticacionGoogle} from "../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import "./../css/PantallaRecibida.css";
+import "../css/LoginCss.css";
 
 const Autentificacion =() =>{
     const [email, setEmail] = useState("");
@@ -38,6 +38,7 @@ const SignOut = async ()=>{
 
     return (
         <div className="message-box">
+            <h1>REGISTRARSE</h1>
             <input
                 placeholder="Gmial"
                 onChange={(e)=> setEmail(e.target.value)}
@@ -47,7 +48,10 @@ const SignOut = async ()=>{
             onChange={(e)=> setPassword(e.target.value)}
             />
             <button onClick={registro}>registrarse</button>
-            <button onClick={registroConGoogle}>registrase con google</button>
+            <button onClick={registroConGoogle} className="ini">
+                <img src="/icons8-logo-de-google-48.png" alt="Logo Google" />
+                <p>Iniciar sesión con google</p>
+            </button>
             <button onClick={SignOut}>cancelar</button>
         </div>
     );
