@@ -3,6 +3,8 @@
   justify-content: center;  /* centra horizontalmente */
   align-items: center;      /* centra verticalmente */
   height: auto;            /* altura automatica en la pantalla */
+  transform: translate(0px, 180px);
+  
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
@@ -41,7 +43,7 @@ position: relative;
 }
 
 .formtxt::before {
-transform: translate(-140px, 32px);
+transform: translate(-140px, 27px);
   width: 18px;
   height: 18px;
   background-color: #5FA8C0;
