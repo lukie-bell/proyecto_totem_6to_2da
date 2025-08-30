@@ -1,10 +1,15 @@
 .formulario{
   display: flex;
-  justify-content: center;  /* centra horizontalmente */
-  align-items: center;      /* centra verticalmente */
-  height: auto;            /* altura automatica en la pantalla */
-  transform: translate(0px, 180px);
+  transform: translate(0px, 50px);
+  margin:20px;
   
+}
+
+@media (max-height: 700px) {
+  .formu {
+    max-height: 90vh;   /* que no se pase de la pantalla */
+    overflow-y: auto;   /* si sobra contenido, que tenga scroll interno */
+  }
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
@@ -12,15 +17,41 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-height: 450px;
   min-width: 600px;
   background-color: #333333;
-  padding: 20px;
+  padding: 30px;
   border-radius: 20px;
   position: relative;
   border-color: black;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border: 2px solid #5FA8C0;
+  border: 3px solid #5FA8C0;
+  overflow-y: auto;        
+  overflow-x: hidden;
 }
+
+/* se personaliza el Scrollbar del formulario */
+.formu::-webkit-scrollbar {
+  width: 8px;             
+}
+
+.formu::-webkit-scrollbar-track {
+  background: #333333;
+  border-radius: 20px;
+  margin: 15px;            
+}
+
+.formu::-webkit-scrollbar-thumb {
+  background: #5FA8C0;
+  border-radius: 20px;
+  border: 2px solid #333333; 
+  min-height: 20px;           
+}
+
+.formu::-webkit-scrollbar-thumb:hover {
+  background: #4b9bb0;
+}
+
 /*agregamos formas y las animamos (circulo)*/
 .formtxt {
   font-size: 28px;
@@ -189,5 +220,5 @@ font-weight: 700;
 .mensaje-error {
   color: red;
   font-size: 0.85rem;
-  margin-top: 4px;
+  margin-top: 50px;
 }
