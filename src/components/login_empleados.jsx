@@ -5,19 +5,38 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/LoginCss.css";
 
+//Estados de componente
 const Autentificacion =() =>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorEmail, setErrorEmail] = useState("");
+    const [errorPassword, setErrorPassword] = useState("");
     const navigate = useNavigate();
 
-    const registro = async ()=>{
+//funciones de autenticación
+ const registro = async ()=>{
         try{
         await createUserWithEmailAndPassword(autenticacion, email, password);
         navigate("/PageEmpleados");
         }catch(err){
             console.error(err);
         }
+
+        let valid = true;
+
+        if(!email){
+            setErrorEmail("Campo Gmail no completado");
+            valid = false;
+        } else setErrorEmail("");
+
+        if(!password){
+            setErrorPassword("Campo Contraseña no completado");
+            valid = false;
+        } else setErrorPassword("");
+
+        if(!valid) return;
     };
+
 const registroConGoogle = async ()=>{
         try{
         await signInWithPopup (autenticacion, autenticacionGoogle);
@@ -35,18 +54,26 @@ const SignOut = async ()=>{
         }
     };
 
-
+//Cuerpo del Login
     return (
         <div className="message-box">
             <h1>REGISTRARSE</h1>
             <input
                 placeholder="Gmial"
+               value={email}
                 onChange={(e)=> setEmail(e.target.value)}
+                className={errorEmail ? "input-error" : ""}
             />
+            {errorEmail && <p className="error-messages">{errorEmail}</p>}
+
             <input 
             placeholder="contraseña"
-            onChange={(e)=> setPassword(e.target.value)}
+            value={password}
+                onChange={(e)=> setPassword(e.target.value)}
+                className={errorPassword ? "input-error" : ""}
             />
+            {errorPassword && <p className="error-message">{errorPassword}</p>}
+
             <button onClick={registro}>registrarse</button>
             <button onClick={registroConGoogle} className="ini">
                 <img src="/icons8-logo-de-google-48.png" alt="Logo Google" />

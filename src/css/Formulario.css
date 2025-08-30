@@ -211,7 +211,7 @@ font-weight: 700;
     opacity: 0;
   }
 }
-/* estilo pra las alertas*/
+/* estilo para las alertas*/
 .input-error {
   border: 2px solid red;
   background-color: #ffe6e6;

@@ -1,3 +1,4 @@
+/* Estilo para el cuerpo del login*/
 .message-box {
     background-color: #333;
     border-radius: 15px;
@@ -12,6 +13,7 @@
     border: 5px solid #5FA8C0;
 }
 
+/* estilo pra las alertas*/
 .ini{ 
   transform: translate(0px, 40px);
   align-items: center;        
@@ -28,6 +30,7 @@
   height: 39px;
 }
 
+/* estilo para los botones*/
 button{     
   flex-direction: row;    
   justify-content: center;
@@ -45,29 +48,33 @@ img{
 p{
    transform: translate(17px, -40px);
 }
-
+ /* estilo para el h1 de placeholder*/
 h1{
     font-size: 40px;
     color:#F5F5F5;
 }
 
+/* estilo para los placeholder*/
 input::placeholder{
     color:#F5F5F5;
 }
 
+/* animación de hover para los botones*/
 button:hover{
     background-color: #D1EDF9;
 }
 
+/* estilo para el h1 (registro) del login*/
 .message-box h1 {
     font-size: 3rem;
-    color: #5FA8C0; /* color base neón */
+    color: #5FA8C0; 
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
     animation: neonPulse 1.8s infinite alternate;
 }
 
+/* animación para h1 (registro) del login */
 @keyframes neonPulse {
     0% {
         text-shadow: 
@@ -93,4 +100,28 @@ button:hover{
             0 0 40px #F5F5F5;
         transform: scale(1);
     }
+}
+
+/* estilo para las alertas de error*/
+.input-container {
+  position: relative;
+}
+
+.input-error {
+  border: 2px solid red;
+
+}
+
+.error-messages {
+  position: absolute;
+  color: red;
+  font-size: 0.55em; 
+  transform: translate(55px, -5px);
+}
+
+.error-message {
+  position: absolute;
+  color: red;
+  font-size: 0.55em; 
+  transform: translate(255px, -5px);
 }
