@@ -17,7 +17,7 @@ const Autentificacion =() =>{
  const registro = async ()=>{
         try{
         await createUserWithEmailAndPassword(autenticacion, email, password);
-        navigate("/PageEmpleados");
+        navigate("/Empleados");
         }catch(err){
             console.error(err);
         }
@@ -40,7 +40,7 @@ const Autentificacion =() =>{
 const registroConGoogle = async ()=>{
         try{
         await signInWithPopup (autenticacion, autenticacionGoogle);
-        navigate("/PageEmpleados");
+        navigate("/Empleados");
         }catch(err){
             console.error(err);
         }
