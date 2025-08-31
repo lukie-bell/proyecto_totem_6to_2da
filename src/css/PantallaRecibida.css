@@ -22,14 +22,20 @@ body {
 }
 
 .school-logo {
-    height: 50px;
-    width: auto;
+    height: 150px;
+    width: 150px;
+    margin-left: 200px;
 }
 
 .school-name {
     font-size: 24px;
     font-weight: bold;
     color: #2681AE;
+}
+
+p{
+    color: aliceblue;
+    margin-right: 50px;
 }
 
 .header-center {

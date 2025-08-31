@@ -45,6 +45,7 @@ const registroConGoogle = async ()=>{
             console.error(err);
         }
     };
+
 const SignOut = async ()=>{
         try{
         await signOut (autenticacion);
@@ -58,29 +59,15 @@ const SignOut = async ()=>{
     return (
         <div className="message-box">
             <h1>REGISTRARSE</h1>
-            <input
-                placeholder="Gmial"
-               value={email}
-                onChange={(e)=> setEmail(e.target.value)}
-                className={errorEmail ? "input-error" : ""}
-            />
-            {errorEmail && <p className="error-messages">{errorEmail}</p>}
 
-            <input 
-            placeholder="contraseña"
-            value={password}
-                onChange={(e)=> setPassword(e.target.value)}
-                className={errorPassword ? "input-error" : ""}
-            />
-            {errorPassword && <p className="error-message">{errorPassword}</p>}
-
-            <button onClick={registro}>registrarse</button>
             <button onClick={registroConGoogle} className="ini">
                 <img src="/icons8-logo-de-google-48.png" alt="Logo Google" />
                 <p>Iniciar sesión con google</p>
             </button>
+
             <button onClick={SignOut}>cancelar</button>
         </div>
     );
 }
+
 export default Autentificacion;
