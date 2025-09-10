@@ -26,30 +26,24 @@ const FechaMax = () => {
 
 
 
-//Estados de los campos del formulario.
-const TurnoFormulario = () =>{
+  //Estados de los campos del formulario.
+    const TurnoFormulario = () =>{
     const[nombre, setNombre] = useState("");
     const[dni, setDNI] = useState("");
     const[fecha, setFecha] = useState(FechaActual());
     const[motivo, setMotivo] = useState("");
-    const[aclaracion, setAclaracion] = useState("");
 
     const navigate = useNavigate(); //Eli:variable para guardar el uso del navigate
 
-//Alertas para errores del usuario
-const [errores, setErrores] = useState({});
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const errores = {};
+  //Alertas para errores del usuario
+    const [errores, setErrores] = useState({});
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    const errores = {};
 
-//Alerta nombre
+  //Alerta nombre
   if (nombre.trim() === "") {
     errores.nombre = "Campo nombre no completado";
-  } else {
-    const letras = /^[a-zA-Z\s]+$/;
-    if (!letras.test(nombre.trim())) {
-      errores.nombre = "El nombre no puede contener números.";
-    }
   }
 
   //Alerta dni
@@ -58,10 +52,6 @@ const handleSubmit = (e) => {
   } else {
     const DNI = Number(dni);
     if (isNaN(DNI)) {
-      errores.dni = "El DNI no puede contener letras.";
-    } else if (DNI < 0) {
-      errores.dni = "El DNI no puede ser negativo.";
-    } else if (dni.length !== 8) {
       errores.dni = "El DNI debe tener 8 números.";
     }
   }
@@ -90,15 +80,6 @@ const handleSubmit = (e) => {
   }
 };
 
-//Función del boton restaurar.
-const restaurar = () => {
-    setNombre('');
-    setDNI('');
-    setFecha(FechaActual());
-    setMotivo('');
-    setAclaracion('');
-};
-
 //Estructura del formulario 
 return(
     <div className="formulario">
@@ -110,14 +91,14 @@ return(
                 <label>Nombre:</label>
                 <input type="text"
                 value={nombre}
-                onChange={(e)=>setNombre(e.target.value)}/>
+                onChange={(e)=>setNombre(e.target.value.replace(/[^A-Za-z]/g, ""))}/>
                  {errores.nombre && <p className="mensaje-error">{errores.nombre}</p>}
             </div>
             <div>
                 <label>DNI:</label>
                 <input type="text" maxLength={8}
                 value={dni}
-                onChange={(e)=>setDNI(e.target.value)}/>
+                onChange={(e)=>setDNI(e.target.value.replace(/[^0-9]/g, ""))}/>
                  {errores.dni && <p className="mensaje-error">{errores.dni}</p>}
             </div>
             <div>
@@ -138,18 +119,11 @@ return(
                 </select>
                  {errores.motivo && <p className="mensaje-error">{errores.motivo}</p>}
             </div>
-            <div>
-                <label>Aclaración:</label>
-                <textarea rows="4" cols="5" maxLength={1000}
-                value={aclaracion}
-                onChange={(e)=>setAclaracion(e.target.value)}/>
-            </div>
 
-            <button className="rest" type="button" onClick={restaurar}>Restaurar</button>
             <button className="subt" type="submit">Enviar</button>
         </form>
     </div>
-);
+  );
 };
 
 export default TurnoFormulario;
