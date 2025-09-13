@@ -92,7 +92,7 @@ body {
     .formulario{
   display: flex;
   justify-content: center;
- transform: translate(0px, 95px);
+ transform: translate(0px, 98px);
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
@@ -167,7 +167,7 @@ form > div > label {
 /* Inputs y selects (casilleros) */
 input,
 select {
-  padding: 5px;
+  padding: 4px;
   background-color:#5FA8C0;;
   border: 1px solid #F5F5F5;
   border-radius: 10px;
@@ -200,7 +200,7 @@ select:focus {
 }
 /*textarea (tamaño y estilo) */
 textarea {
-  padding: 5px;
+  padding: 4px;
   background-color: #5FA8C0;
   border: 1px solid #F5F5F5;
   border-radius: 10px;
@@ -227,7 +227,7 @@ button {
   cursor: pointer;
   transition: 0.3s ease;
   margin-right: 10px;
-  transform: translate(4px, -10px);
+  transform: translate(4px, -20px);
 }
 
 .subt{
@@ -274,7 +274,7 @@ font-weight: 700;
 }
 
 .popup-contenido {
-  background: white;
+  background: #253137;
   padding: 20px 30px;
   border-radius: 10px;
   max-width: 400px;
@@ -282,10 +282,17 @@ font-weight: 700;
   box-shadow: 0px 0px 10px black;
 }
 
+.hpop{
+  font-size: 35px;
+  color: rgb(255, 95, 95);
+}
+
 .popup-contenido pre {
   text-align: left;
   white-space: pre-wrap;
   margin: 15px 0;
+  font-size: 18px;
+  color: #F5F5F5;
 }
 
 .popup-contenido button {
@@ -293,17 +300,16 @@ font-weight: 700;
   background-color: #5FA8C0;
   border: none;
   border-radius: 5px;
-  color: white;
+  color: #F5F5F5;
   font-weight: bold;
   cursor: pointer;
 }
 
 .mensaje-error {
   min-height: 18px; /* o el alto que necesites para un mensaje */
-  color: #f55;
   margin: 0;
   visibility: hidden; /* Oculto pero ocupa espacio */
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -328,11 +334,12 @@ font-weight: 700;
     border: 5px solid #5FA8C0;
     justify-content: center; /* Centrar horizontal */
     align-items: center;
+    transform: translate(350px, 100px);
 }
 
 /* estilo pra las alertas*/
 .ini{ 
-  transform: translate(0px, 40px);
+  transform: translate(0px, 30px);
   align-items: center;        
   gap: 10px;                  
   padding: 0px 24px;
@@ -362,13 +369,14 @@ img{
     height: 30px;
 }
 
-p{
-   transform: translate(17px, -40px);
+.inigoogle{
+   transform: translate(45px, -40px);
+   color: #333;
 }
  /* estilo para el h1 de placeholder*/
 h1{
     font-size: 40px;
-    color:#F5F5F5;
+    color:#5FA8C0;
     grid-template-columns: 1/2; 
 }
 
@@ -380,68 +388,6 @@ input::placeholder{
 /* animación de hover para los botones*/
 button:hover{
     background-color: #D1EDF9;
-}
-
-/* estilo para el h1 (registro) del login*/
-.message-box h1 {
-    font-size: 3rem;
-    color: #5FA8C0; 
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 2px;
-    animation: neonPulse 1.8s infinite alternate;
-}
-
-/* animación para h1 (registro) del login */
-@keyframes neonPulse {
-    0% {
-        text-shadow: 
-            0 0 5px #F5F5F5,
-            0 0 10px #F5F5F5,
-            0 0 20px #F5F5F5,
-            0 0 40px #F5F5F5;
-        transform: scale(1);
-    }
-    50% {
-        text-shadow: 
-            0 0 10px #F5F5F5,
-            0 0 20px #F5F5F5,
-            0 0 40px #F5F5F5,
-            0 0 60px #F5F5F5;
-        transform: scale(1.05);
-    }
-    100% {
-        text-shadow: 
-            0 0 5px #F5F5F5,
-            0 0 10px #F5F5F5
-            0 0 20px #F5F5F5,
-            0 0 40px #F5F5F5;
-        transform: scale(1);
-    }
-}
-
-/* estilo para las alertas de error*/
-.input-container {
-  position: relative;
-}
-
-.input-error {
-  border: 2px solid red;
-
-}
-
-.error-messages {
-  position: absolute;
-  color: red;
-  font-size: 0.55em; 
-  transform: translate(55px, -5px);
-}
-
-.error-message {
-  position: absolute;
-  color: red;
-  font-size: 0.55em; 
-  transform: translate(255px, -5px);
 }
 
 /* Pantalla recibido */

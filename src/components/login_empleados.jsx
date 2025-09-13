@@ -62,7 +62,7 @@ const SignOut = async ()=>{
 
             <button onClick={registroConGoogle} className="ini">
                 <img src="/icons8-logo-de-google-48.png" alt="Logo Google" />
-                <p>Iniciar sesión con google</p>
+                <p className="inigoogle">Iniciar sesión con google</p>
             </button>
 
             <button onClick={SignOut}>cancelar</button>

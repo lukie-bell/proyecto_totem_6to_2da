@@ -174,7 +174,7 @@ return (
     {mostrarPopup && (
         <div className="popup-overlay">
           <div className="popup-contenido">
-            <h3> Falta llenar campos</h3>
+            <h3 className="hpop"> ¡Faltan completar campos!</h3>
             <pre>{mensajePopup}</pre>
            <button
   onClick={() => {setMostrarPopup(false);setErrores({});}}>Cerrar</button>
