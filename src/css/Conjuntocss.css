@@ -90,29 +90,25 @@ body {
     /* pantalla formularios */
 
     .formulario{
-   display: flex;
+  display: flex;
   justify-content: center;
-  padding-top: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-  transform: translate(0px, -5px);
+ transform: translate(0px, 95px);
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
 .formu {
-display: flex;
+  display: flex;
   flex-direction: column;
-  gap: 2px;
-  width: 580px;
-  background-color: #333333;
-  padding: 10px 30px;
+  gap: 1px;          
+  width: 620px;    
+  background-color: #222222;
+  padding: 0px 25px; 
   border-radius: 20px;
   position: relative;
-  border-color: black;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  max-height: none;
-  min-height: auto;
-  overflow: visible;
+  border: 2px solid black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  min-height: auto;  
+  box-sizing: border-box;
 }
 
 /*agregamos formas y las animamos (circulo)*/
@@ -159,7 +155,7 @@ transform: translate(-140px, 27px);
 form > div {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 form > div > label {
@@ -171,7 +167,7 @@ form > div > label {
 /* Inputs y selects (casilleros) */
 input,
 select {
-  padding: 10px;
+  padding: 5px;
   background-color:#5FA8C0;;
   border: 1px solid #F5F5F5;
   border-radius: 10px;
@@ -204,7 +200,7 @@ select:focus {
 }
 /*textarea (tamaño y estilo) */
 textarea {
-  padding: 10px;
+  padding: 5px;
   background-color: #5FA8C0;
   border: 1px solid #F5F5F5;
   border-radius: 10px;
@@ -265,15 +261,54 @@ font-weight: 700;
   }
 }
 /* estilo para las alertas*/
-.input-error {
-  border: 2px solid red;
-  background-color: #ffe6e6;
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-contenido {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 0px 10px black;
+}
+
+.popup-contenido pre {
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 15px 0;
+}
+
+.popup-contenido button {
+  padding: 10px 20px;
+  background-color: #5FA8C0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .mensaje-error {
-  color: red;
-  font-size: 0.85rem;
-  margin-top: 50px;
+  min-height: 18px; /* o el alto que necesites para un mensaje */
+  color: #f55;
+  margin: 0;
+  visibility: hidden; /* Oculto pero ocupa espacio */
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mensaje-error.visible {
+  visibility: visible;
 }
 
 /* Pantalla Login */

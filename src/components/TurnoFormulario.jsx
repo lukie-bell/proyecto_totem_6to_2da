@@ -36,20 +36,28 @@ const TurnoFormulario = () =>{
   const[dni, setDNI] = useState("");
   const[fecha, setFecha] = useState(FechaActual());
   const[motivo, setMotivo] = useState("");
+  const[mostrarPopup, setMostrarPopup] = useState (false);
+  const[mensajePopup, setMensajePopup] = useState ("");
+
 
 const navigate = useNavigate(); //Eli:variable para guardar el uso del navigate
 
   //Alertas para errores del usuario
     const [errores, setErrores] = useState({});
-    const handleSubmit = async (e) => {
-    e.preventDefault();
-    const errores = {};
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  // Reseteamos antes para forzar render
+  setErrores({});
+  setMostrarPopup(false);
+
+  const errores = {};
 
     //Alerta nombre
     if (nombre.trim() === "") {errores.nombre = "Campo nombre no completado";}
 
     //Alerta apellido
-    if (apellido.trim() === "") {errores.nombre = "Campo apellido no completado";}
+    if (apellido.trim() === "") {errores.apellido = "Campo apellido no completado";}
 
     //Alerta dni
     if (dni.trim() === "") {errores.dni = "Campo DNI no completado";} 
@@ -67,73 +75,113 @@ const navigate = useNavigate(); //Eli:variable para guardar el uso del navigate
 
     if (motivo.trim() === "") {errores.motivo = "Campo motivo no completado";}
 
-    // Guardado de errores para mostrarlo despues
+   // Guardado de errores para mostrarlo despues
     setErrores(errores);
 
-    if (Object.keys(errores).length === 0) {
-      try {
-      await addDoc(collection(db, 'turnos'), { nombreCompleto: nombre + " " + apellido, dni, fecha, motivo, creadoEn: new Date(), }); //Campos que se van a enviar a la bd.
-      setNombre(''); 
-      setApellido('');
-      setDNI('');
-      setFecha(FechaActual());
-      setMotivo('');
+    if (Object.keys(errores).length > 0) {
+      const mensaje = Object.values(errores).join("\n");
+      setMensajePopup(mensaje);
+      setMostrarPopup(true);
+
+      return;
+  };
+
+try {
+      await addDoc(collection(db, 'turnos'), {
+        nombreCompleto: `${nombre} ${apellido}`,
+        dni,
+        fecha,
+        motivo,
+        creadoEn: new Date(),
+      });
+
+      // Redireccionar
       navigate("/Recibido", { state: { nombre } });
-      } catch (error) {
+    } catch (error) {
       console.error(error);
-      alert('Error al registrar turno.');
-      }
+      setMensajePopup("Error al registrar el turno.");
+      setMostrarPopup(true);
     }
   };
 
 //Estructura del formulario 
-return(
+return (
+  <>
     <div className="formulario">
-        <form onSubmit={handleSubmit} className="formu">
-            <div className="formtxt">Formulario de turno</div>
-                <div>
-                <label>Nombre:</label>
-                <input type="text"
-                value={nombre}
-                onChange={(e)=>setNombre(e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ""))}/>
-                 {errores.nombre && <p className="mensaje-error">{errores.nombre}</p>}
-            </div>
-              <div>
-                <label>Apellido:</label>
-                <input type="text"
-                value={apellido}
-                onChange={(e)=>setApellido(e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ""))}/>
-                 {errores.nombre && <p className="mensaje-error">{errores.apellido}</p>}
-            </div> 
-            <div>
-                <label>DNI:</label>
-                <input type="text" maxLength={8}
-                value={dni}
-                onChange={(e)=>setDNI(e.target.value.replace(/[^0-9]/g, ""))}/>
-                 {errores.dni && <p className="mensaje-error">{errores.dni}</p>}
-            </div>
-            <div>
-                <label>Fecha:</label>
-                <input type="datetime-local"
-                value={fecha}
-                onChange={(e)=>setFecha(e.target.value)}
-                min={FechaActual()}/>
-                 {errores.fecha && <p className="mensaje-error">{errores.fecha}</p>}
-            </div>
-            <div>
-                <label>Motivo:</label>
-                <select value={motivo} onChange={(e)=>setMotivo(e.target.value)}>
-                    <option value="">----------Elegir Motivo----------</option>
-                    <option value="Hablar con un preceptor.">Hablar con un preceptor.</option>
-                    <option value="Hablar con un regente.">Hablar con un regente.</option>
-                    <option value="Hablar con un directivo.">Hablar con un directivo.</option>
-                </select>
-                 {errores.motivo && <p className="mensaje-error">{errores.motivo}</p>}
-            </div>
-            <button className="subt" type="submit">Enviar</button>
-        </form>
+      <form onSubmit={handleSubmit} className="formu">
+        <div className="formtxt">Formulario de turno</div>
+
+        <div>
+          <label>Nombre:</label>
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) =>
+              setNombre(e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ""))
+            }
+          />
+          <p className="mensaje-error">{errores.nombre || "\u00A0"}</p>
+        </div>
+
+        <div>
+          <label>Apellido:</label>
+          <input
+            type="text"
+            value={apellido}
+            onChange={(e) =>
+              setApellido(e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ""))
+            }
+          />
+          <p className="mensaje-error">{errores.apellido || "\u00A0"}</p>
+        </div>
+
+        <div>
+          <label>DNI:</label>
+          <input
+            type="text"
+            maxLength={8}
+            value={dni}
+            onChange={(e) => setDNI(e.target.value.replace(/[^0-9]/g, ""))}
+          />
+          <p className="mensaje-error">{errores.dni || "\u00A0"}</p>
+        </div>
+
+        <div>
+          <label>Fecha:</label>
+          <input
+            type="datetime-local"
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
+            min={FechaActual()}
+          />
+          <p className="mensaje-error">{errores.fecha || "\u00A0"}</p>
+        </div>
+
+        <div>
+          <label>Motivo:</label>
+          <select value={motivo} onChange={(e) => setMotivo(e.target.value)}>
+            <option value="">----------Elegir Motivo----------</option>
+            <option value="Hablar con un preceptor.">Hablar con un preceptor.</option>
+            <option value="Hablar con un regente.">Hablar con un regente.</option>
+            <option value="Hablar con un directivo.">Hablar con un directivo.</option>
+          </select>
+          <p className="mensaje-error">{errores.motivo || "\u00A0"}</p>
+        </div>
+
+        <button className="subt" type="submit">Enviar</button>
+      </form>
     </div>
+    {mostrarPopup && (
+        <div className="popup-overlay">
+          <div className="popup-contenido">
+            <h3> Falta llenar campos</h3>
+            <pre>{mensajePopup}</pre>
+           <button
+  onClick={() => {setMostrarPopup(false);setErrores({});}}>Cerrar</button>
+          </div>
+        </div>
+      )}
+      </>
   );
 };
-
 export default TurnoFormulario;
