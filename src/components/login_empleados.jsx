@@ -3,7 +3,7 @@ import {autenticacion, autenticacionGoogle} from "../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/LoginCss.css";
+import "../css/Conjuntocss.css";
 
 //Estados de componente
 const Autentificacion =() =>{

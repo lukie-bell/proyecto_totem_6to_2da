@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation , useNavigate} from "react-router-dom";
-import  "../css/Empleados.css";
+import  "../css/Conjuntocss.css";
 import { useState, useEffect } from 'react';
 //No se por que en esta version tarda en eliminarse la burbujita despues lo arreglare
 

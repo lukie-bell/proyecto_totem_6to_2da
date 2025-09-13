@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Inicio from "./pages/Inicio"
 import Autentificacion from "./components/login_empleados";
-import "../src/css/Formulario.css";
+import "../src/css/Conjuntocss.css";
 import PageRecibido from "./pages/PageRecibido";
 import PageEmpleados from "./pages/PageEmpleados";
 

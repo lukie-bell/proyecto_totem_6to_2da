@@ -1,7 +1,7 @@
 // src/components/PantallaRecibida.jsx
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./../css/PantallaRecibida.css";
+import "./../css/Conjuntocss.css";
 import logo from "./../assets/epet20.png";
 
 // hay cosas que estan vinculadas al css de login.css
