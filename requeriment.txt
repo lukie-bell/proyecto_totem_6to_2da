@@ -1,0 +1,3 @@
+#estas son todas las librerias que se usan en este proyecto
+firebase>=12.0.0
+react>=19.1.0
