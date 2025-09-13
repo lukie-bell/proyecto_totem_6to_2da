@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Inicio from "./pages/Inicio"
-import Autentificacion from "./components/login_empleados";
 import "../src/css/Conjuntocss.css";
 import AppRouter from './components/AppRutas';
 import PageRecibido from "./pages/PageRecibido";

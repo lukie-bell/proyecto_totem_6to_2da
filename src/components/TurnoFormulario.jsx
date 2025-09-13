@@ -1,8 +1,8 @@
 import React, {useState,} from "react";
 import { useNavigate  } from "react-router-dom";
-import "../css/Conjuntocss.css";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import "../css/Conjuntocss.css";
 
 //Función para establecer la fecha actual como fecha predeterminada.
 const FechaActual = () => {

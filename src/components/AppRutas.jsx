@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Inicio from "../pages/Inicio";
 import Autentificacion from "./login_empleados";
-import "../css/Formulario.css";
+import "../css/Conjuntocss.css";
 import PageRecibido from "../pages/PageRecibido";
 import PageEmpleados from "../pages/PageEmpleados";
 

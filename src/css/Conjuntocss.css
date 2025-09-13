@@ -2,12 +2,10 @@
 
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #D1EDF9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: sans-serif;
 }
 
 .partedearriba{
@@ -92,57 +90,29 @@ body {
     /* pantalla formularios */
 
     .formulario{
-  display: flex;
-  transform: translate(0px, 50px);
-  margin:20px;
-  
-}
-
-@media (max-height: 700px) {
-  .formu {
-    max-height: 90vh;   /* que no se pase de la pantalla */
-    overflow-y: auto;   /* si sobra contenido, que tenga scroll interno */
-  }
+   display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  transform: translate(0px, -5px);
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
 .formu {
-  display: flex;
+display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-height: 450px;
-  min-width: 600px;
+  gap: 2px;
+  width: 580px;
   background-color: #333333;
-  padding: 30px;
+  padding: 10px 30px;
   border-radius: 20px;
   position: relative;
   border-color: black;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border: 3px solid #5FA8C0;
-  overflow-y: auto;        
-  overflow-x: hidden;
-}
-
-/* se personaliza el Scrollbar del formulario */
-.formu::-webkit-scrollbar {
-  width: 8px;             
-}
-
-.formu::-webkit-scrollbar-track {
-  background: #333333;
-  border-radius: 20px;
-  margin: 15px;            
-}
-
-.formu::-webkit-scrollbar-thumb {
-  background: #5FA8C0;
-  border-radius: 20px;
-  border: 2px solid #333333; 
-  min-height: 20px;           
-}
-
-.formu::-webkit-scrollbar-thumb:hover {
-  background: #4b9bb0;
+  max-height: none;
+  min-height: auto;
+  overflow: visible;
 }
 
 /*agregamos formas y las animamos (circulo)*/
@@ -261,23 +231,13 @@ button {
   cursor: pointer;
   transition: 0.3s ease;
   margin-right: 10px;
-}
-
-.rest {
- background-color: rgb(237, 111, 111);
- font-weight: 700;
+  transform: translate(4px, -10px);
 }
 
 .subt{
 background-color: rgb(135, 239, 135);
 font-weight: 700;
 
-}
-
-.rest:hover {
-  background-color: rgb(244, 44, 44);
-  color: #F5F5F5;
-  font-weight: 700;
 }
 
 .subt:hover{
