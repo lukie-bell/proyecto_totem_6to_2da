@@ -1,4 +1,4 @@
-/* pantalla Empledos */
+/* pantalla Empleados */
 
 body {
     margin: 0;
@@ -46,9 +46,11 @@ body {
 
 /* Caja individual */
     .cajas {
+      margin-top: 100px;
       background-color: #333;
       border-radius: 20px;
       width: 900px;
+      height: 400px;
       padding: 20px;
       color: white;
       display: flex;
@@ -57,6 +59,10 @@ body {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       align-items: center;
       justify-content: center;
+    }
+
+    .lista {
+      overflow-y: scroll;
     }
 
     .citas {
@@ -70,6 +76,11 @@ body {
       display: inline-block;
       box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
       height: auto;
+      width: auto;
+    }
+
+    .citas p{
+      color: #222222;
     }
 
     .eliminar-btn {
@@ -96,6 +107,7 @@ body {
 }
 
 /*le damos forma y estilo al cuerpo dal formulario*/
+
 .formu {
   display: flex;
   flex-direction: column;
@@ -112,6 +124,7 @@ body {
 }
 
 /*agregamos formas y las animamos (circulo)*/
+
 .formtxt {
   font-size: 28px;
   color: #5FA8C0;
@@ -337,7 +350,7 @@ font-weight: 700;
     transform: translate(350px, 100px);
 }
 
-/* estilo pra las alertas*/
+/* estilo para las alertas*/
 .ini{ 
   transform: translate(0px, 30px);
   align-items: center;        

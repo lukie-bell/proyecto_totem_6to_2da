@@ -1,102 +1,105 @@
-import React from "react";
-import { useLocation , useNavigate} from "react-router-dom";
-import  "../css/Conjuntocss.css";
-import { useState, useEffect } from 'react';
-//No se por que en esta version tarda en eliminarse la burbujita despues lo arreglare
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import "../css/Conjuntocss.css";
+import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
+/* los filtros llegaran en un futuro ahora los turnos se ordenaran por orden de llagada */
+                                /* seba compra bitcoin */
 
 const PantallaEmpleados = () => {
-    const location = useLocation();
-    const { nombre, dni, fecha, motivo, aclaracion } = location.state || {};
+  const location = useLocation();
+  const { nombre, dni, fecha, motivo, aclaracion } = location.state || {};
 
-    //seba:establesco esta tabla de ejemplo para probar el filtro y no recurrir a un json 
-    const [lista, setLista] = useState ([ 
-        {
-            id: 1,
-            nombre: "santiago mendoza",
-            dni: 28180384,
-            fecha: "2025-7-1-12-30",
-            motivo: "Hablar con un preceptor.",
-            aclaracion: "Hablar con un preceptor."
-        },
-        {
-            id: 2,
-            nombre: "rocio iniseta",
-            dni: 28188754,
-            fecha: "2025-2-4-12-30",
-            motivo: "Hablar con un preceptor.",
-            aclaracion: "Hablar con un preceptor."
-        },
-        {
-            id: 3,
-            nombre: "sebastian naton",
-            dni: 32480384,
-            fecha: "2025-1-2-12-30",
-            motivo: "Hablar con un preceptor.",
-            aclaracion: "Hablar con un preceptor."
-        }
-    ]);
+  const [turnos, setTurnos] = useState([]);
 
+  // Seba: obtener la informacion de turnos de Firestore en tiempo real
+  useEffect(() => {
+    const turnosRef = collection(db, "turnos");
 
-    //seba: ordena la lista de la fecha mas proxima a la mas lejana
-   const listaOrdenada = lista.sort((a, b) => {
-   const fechaA = a.fecha ? new Date(...a.fecha.split('-').map(Number)) : new Date(0);
-   const fechaB = b.fecha ? new Date(...b.fecha.split('-').map(Number)) : new Date(0);
-   
-   return fechaA - fechaB;
-   });
-
-   //seba: es la funcion que se emplea para que el boton de borrar elimine ese dato
-   const borrarItem = (id) => {
-        setLista(lista.filter(item => item.id !== id)); // Filtra y elimina el elemento con ese ID
-    };
-
-/*    const agregaritem = (nombre, dni, fecha, motivo, aclaracion) =>{
-        const nuevoitem = {
-            id: lista.length+1,
-            nombre: {nombre},
-            dni: {dni},
-            fecha: {fecha},
-            motivo:{motivo},
-            aclaracion:{aclaracion}
-        }
-    }
-
-    setLista([lista, agregaritem])
-*/
-
-    //ordena correctamente las tablas sin alterar mucho
-    useEffect(() => {
-    const listaOrdenada = [...lista].sort((a, b) => {
-        const fechaA = a.fecha ? new Date(...a.fecha.split('-').map(Number)) : new Date(0);
-        const fechaB = b.fecha ? new Date(...b.fecha.split('-').map(Number)) : new Date(0);
-        return fechaA - fechaB;
+    // Seba: usamos onSnapshot que escucha los cambios en tiempo real
+    const unsubscribe = onSnapshot(turnosRef, (snapshot) => {
+      const lista = snapshot.docs.map((docSnap) => {
+        const data = docSnap.data();
+        return {
+          id: docSnap.id,
+          ...data,
+          nombre: data.nombre || data.nombreCompleto?.split(" ").slice(0, -1).join(" "),
+          apellido: data.apellido || data.nombreCompleto?.split(" ").slice(-1).join(" "),
+        };
+      });
+      setTurnos(lista);
     });
 
-    //setea la nueva tabla
-    setLista(listaOrdenada);
-    }, [lista]);
+    // Seba: usamos Cleanup para cuando el componente se desmonte
+    return () => unsubscribe();
+  }, []);
 
-   return (
-        <div>
-            <div className="cajadecajas">
-                <div className="cajas"><h2>turnos</h2>
-                    <div className="lista">
-                        {lista.map((formulario, index) => (
-                            <div key={index} className="citas">
-                                <p><strong>Nombre: </strong>{formulario.nombre}</p>
-                                <p><strong>Dni: </strong>{formulario.dni}</p>
-                                <p><strong>Fecha: </strong>{formulario.fecha} </p>
-                                <p><strong>Motivo </strong>{formulario.motivo}</p>
-                                <p><strong>aclaracion</strong>{formulario.aclaracion}</p>
-                                <button onClick={() => borrarItem(formulario.id)} className="eliminar-btn" >Eliminar</button>
-                            </div>
-                        )) }
-                    </div>
-                </div>
-            </div>
+  // Seba: Función para eliminar turno
+  const borrarItem = async (id) => {
+  const confirmado = window.confirm("¿Estás seguro que querés eliminar este turno?");
+  if (!confirmado) return; // Si cancelan, no hace nada
+
+  try {
+    await deleteDoc(doc(db, "turnos", id));
+    setTurnos((prev) => prev.filter((turno) => turno.id !== id));
+  } catch (error) {
+    console.error("Error al eliminar turno:", error);
+  }
+};
+
+
+  return (
+    <div>
+      <div className="cajadecajas">
+        <div className="cajas">
+          <h2>Lista de Turnos</h2>
+          <div className="lista">
+            <center>
+              {turnos.length === 0 ? (
+                <p>No hay turnos registrados</p>
+              ) : (
+                turnos.map((formulario, index) => (
+                  <div key={formulario.id || index} className="citas">
+                    <center>
+                      <p>
+                        <strong>Nombre: </strong>
+                        {formulario.nombre} {formulario.apellido}
+                      </p>
+                      <p>
+                        <strong>DNI: </strong>
+                        {formulario.dni}
+                      </p>
+                      <p>
+                        <strong>Fecha: </strong>
+                        {formulario.fecha}
+                      </p>
+                      <p>
+                        <strong>Motivo: </strong>
+                        {formulario.motivo}
+                      </p>
+                      {formulario.aclaracion && (
+                        <p>
+                          <strong>Aclaración: </strong>
+                          {formulario.aclaracion}
+                        </p>
+                      )}
+                      <button
+                        onClick={() => borrarItem(formulario.id)}
+                        className="eliminar-btn"
+                      >
+                        Eliminar
+                      </button>
+                    </center>
+                  </div>
+                ))
+              )}
+            </center>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default PantallaEmpleados;
