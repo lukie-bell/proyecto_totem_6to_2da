@@ -9,24 +9,24 @@ const ABM = () => {
     const [prece, setPrece] = useState(false);
 
     return (
-        <div>
+        <div className="cajaabm">
             {/* Div con toda la page de ABM. */}
             <div>
                 <div>
                     {/* Div que contiene el menu de las colecciones. */}
-                    <div>
-                        <div><button onClick={() => setAdmin(true)}>Admins</button></div>
-                        <div><button onClick={() => setPrece(true)}>Preceptores</button></div>
+                    <div className="botonesabm">
+                        <div><button className="botad" onClick={() => setAdmin(true)}>Admins</button></div>
+                        <div><button className="botpre" onClick={() => setPrece(true)}>Preceptores</button></div>
                     </div>
                 <div>
                     {prece && (
-                    <div>
+                    <div className="list">
                         <div><AltaPreceptor /></div>
                         <div><ListaPreceptores /></div>
                     </div>
                     )}
                     {admin && (
-                    <div>
+                    <div className="list">
                         <div><AltaAdmin /></div>
                         <div><ListaAdmins /></div>
                     </div>

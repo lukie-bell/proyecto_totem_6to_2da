@@ -40,7 +40,7 @@ const ListaAdmins = () => {
             {admins.length === 0 ? (
                 <p>No hay admins registrados</p>
                 ) : (
-                <div>
+                <div className="listatabla">
                     <table>
                         <thead>
                             <tr>
@@ -53,13 +53,13 @@ const ListaAdmins = () => {
                                 <tr key={admin.id}>
                                     <td>{admin.nombre}</td>
                                     <td>{admin.email}</td>
-                                    <td>
-                                    <button
+                                    <td className="opc">
+                                    <button className="botmod"
                                         onClick={() => handleEditClick(admin)}
                                     >
                                     Modificar
                                     </button>
-                                    <button
+                                    <button className="botelim"
                                         onClick={() => eliminarAdmin(admin.id)}
                                     >
                                     Eliminar

@@ -628,7 +628,7 @@ p{
   border: none;
   padding: 12px 25px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 20px;
   margin: 10px;
 }
 
@@ -738,6 +738,8 @@ position: fixed;
   background-color: #4a91aa;
 }
 
+/* Pop up Alertas de agregar */
+
 .bloqueo {
   position: fixed;
   top: 0;
@@ -793,4 +795,83 @@ position: fixed;
 
 .mensajeer.visible {
   visibility: visible;
+}
+
+/* ABM */
+.cajaabm{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.botad{
+  background-color: #5FA8C0;
+  border: 2px;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.botpre{
+ background-color: #5FA8C0;
+  border: 2px;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.botpre:hover, .botad:hover {
+  background-color: #4a91aa;
+  transition: color 1s ease;
+}
+
+.botonesabm{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 50px;
+}
+
+/* Listas */
+
+.botmod{
+ background-color: #5FA8C0;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.botelim{
+  background-color: #5FA8C0;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.opc{
+  padding: 10px;
+}
+
+.botmod:hover, .botelim:hover {
+  background-color: #4a91aa;
+  transition: color 1s ease;
+}
+
+.listatabla{
+  display: flex;
+  width: 600px;
+  background-color: #2a2a2a;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 15px;
+  border: 5px solid #5FA8C0;
+  transform: translate(350px, 0px);
 }

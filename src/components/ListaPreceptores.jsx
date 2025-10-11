@@ -40,7 +40,7 @@ const ListaPreceptores = () => {
             {preceptores.length === 0 ? (
                 <p>No hay preceptores registrados</p>
                 ) : (
-                <div>
+                <div className="listatabla">
                     <table>
                         <thead>
                             <tr>
@@ -53,13 +53,13 @@ const ListaPreceptores = () => {
                                 <tr key={prece.id}>
                                     <td>{prece.nombre}</td>
                                     <td>{prece.email}</td>
-                                    <td>
-                                    <button
+                                    <td className="opc"> 
+                                    <button className="botmod"
                                         onClick={() => handleEditClick(prece)}
                                     >
                                     Modificar
                                     </button>
-                                    <button
+                                    <button className="botelim"
                                         onClick={() => eliminarPreceptor(prece.id)}
                                     >
                                     Eliminar
