@@ -26,8 +26,8 @@ const AltaAdmin = () => {
   };
 
   return (
-    <div>
-      <button
+    <div className="cajapre">
+      <button className="botonpre"
         onClick={() => setFormAdmin(true)}
       >
         Agregar Admin
@@ -37,17 +37,15 @@ const AltaAdmin = () => {
         <div>
           {/* Popup */}
           <div>
-            <button
-              onClick={() => setFormAdmin(false)}
-            >
-              ✖
+            <button className="botonpre" onClick={() => setFormAdmin(false)}> 
+               ✖
             </button>
 
             <h2>Agregar Admin</h2>
-            <form onSubmit={handleSubmit}>
+            <form className="formpre" onSubmit={handleSubmit}> 
               <div>
-                <label>Nombre:</label>
-                <input
+                <label className="labelpre">Nombre:</label>
+                <input className="inputpre"
                   type="text"
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
@@ -55,15 +53,15 @@ const AltaAdmin = () => {
               </div>
 
               <div>
-                <label>Email:</label>
-                <input
+                <label className="labelpre">Email:</label>
+                <input className="inputpre"
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
-                <button
+                <button className="enviarpre"
                 type="submit"
                 >
                 Agregar

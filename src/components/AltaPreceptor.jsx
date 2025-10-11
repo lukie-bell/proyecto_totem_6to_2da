@@ -27,10 +27,8 @@ const AltaPreceptor = () => {
   };
 
   return (
-    <div>
-      <button
-        onClick={() => setFormPreceptor(true)}
-      >
+    <div className="cajapre">
+      <button className="botonpre" onClick={() => setFormPreceptor(true)}>
         Agregar Preceptor
       </button>
 
@@ -38,17 +36,18 @@ const AltaPreceptor = () => {
         <div>
           {/* Popup */}
           <div>
-            <button
+            <button button className="botonpre"
               onClick={() => setFormPreceptor(false)}
             >
               ✖
             </button>
 
             <h2>Agregar Preceptor</h2>
-            <form onSubmit={handleSubmit}>
+
+            <form className="formpre" onSubmit={handleSubmit}>
               <div>
-                <label>Nombre:</label>
-                <input
+                <label className="labelpre">Nombre:</label>
+                <input className="inputpre"
                   type="text"
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
@@ -56,21 +55,22 @@ const AltaPreceptor = () => {
               </div>
 
               <div>
-                <label>Email:</label>
-                <input
+                <label className="labelpre">Email:</label>
+                <input className="inputpre"
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
-                <button
+                <button className="enviarpre"
                 type="submit"
                 >
                 Agregar
                 </button>
               </div>
             </form>
+
           </div>
         </div>
       )}

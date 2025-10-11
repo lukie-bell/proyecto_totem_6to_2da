@@ -613,3 +613,127 @@ p{
 .send-button:hover {
     background-color: #61a364;
 }
+
+
+/* Agregar Preceptor */
+
+.cajapre {
+  position: relative;
+  text-align: center;
+}
+
+.botonpre {
+  background-color: #5FA8C0;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.botonpre:hover {
+  background-color: #4a91aa;
+}
+
+.cajapre > div:nth-child(2) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6); 
+  backdrop-filter: blur(4px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cajapre > div:nth-child(2) > div {
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  padding: 35px 45px;
+  width: 520px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
+  position: relative;
+  border: 2px solid #5FA8C0;
+  color: white;
+  animation: popupFadeIn 0.3s ease;
+}
+
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cajapre > div:nth-child(2) > div > .botonpre {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #bbb;
+  font-size: 24px;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.cajapre > div:nth-child(2) > div > .botonpre:hover {
+  color: #fff;
+}
+
+.cajapre h2 {
+  color: #5FA8C0;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.formpre {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.labelpre {
+  font-size: 18px;
+  color: #5FA8C0;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+}
+
+.inputpre {
+  width: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 16px;
+  transition: border 0.2s ease;
+}
+
+.inputpre:focus {
+  border-color: #5FA8C0;
+  outline: none;
+}
+
+.enviarpre {
+  background-color: #5FA8C0;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 518px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enviarpre:hover {
+  background-color: #4a91aa;
+}
