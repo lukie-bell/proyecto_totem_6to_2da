@@ -18,15 +18,15 @@ const ABM = () => {
                         <div><button className="botad" onClick={() => setAdmin(true)}>Admins</button></div>
                         <div><button className="botpre" onClick={() => setPrece(true)}>Preceptores</button></div>
                     </div>
-                <div>
+                <div className="list">
                     {prece && (
-                    <div className="list">
+                    <div >
                         <div><AltaPreceptor /></div>
                         <div><ListaPreceptores /></div>
                     </div>
                     )}
                     {admin && (
-                    <div className="list">
+                    <div >
                         <div><AltaAdmin /></div>
                         <div><ListaAdmins /></div>
                     </div>

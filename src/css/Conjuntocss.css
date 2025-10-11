@@ -614,7 +614,6 @@ p{
     background-color: #61a364;
 }
 
-
 /* Agregar Preceptor */
 
 .cajapre {
@@ -746,11 +745,11 @@ position: fixed;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6); /* oscurece el fondo */
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3000; /* más alto que el formulario */
+  z-index: 3000; 
 }
 
 .popupscont {
@@ -798,6 +797,13 @@ position: fixed;
 }
 
 /* ABM */
+.list{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .cajaabm{
   display: block;
   justify-content: center;
@@ -864,7 +870,7 @@ position: fixed;
 .listatabla{
   display: flex;
   width: 600px;
-  background-color: #2a2a2a;
+  background-color: #1e1e1e;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -873,5 +879,11 @@ position: fixed;
   margin: 10px;
   border-radius: 15px;
   border: 5px solid #5FA8C0;
-  transform: translate(350px, 0px);
+}
+
+.listas-contenedor {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  min-height: 50vh;      
 }
