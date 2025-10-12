@@ -94,7 +94,6 @@ const PantallaEmpleados = () => {
       <div className="cajadecajas">
         <div className="cajas">
           <h2>Lista de Turnos</h2>
-
           <input
             type="text"
             placeholder="Buscar por nombre, apellido o DNI"
