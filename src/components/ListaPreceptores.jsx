@@ -46,35 +46,29 @@ const ListaPreceptores = () => {
       {preceptores.length === 0 ? (
         <p>No hay preceptores registrados</p>
       ) : (
-        <div className="listas-contenedor">
-        <div className="listatabla">
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Acciones</th>
+        <table className="main-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {preceptores.map((prece) => (
+              <tr key={prece.id}>
+                <td>{prece.nombre}</td>
+                <td>{prece.email}</td>
+                <td className="actions">
+                  <button className="modify-btn" onClick={() => handleEditClick(prece)}>Modificar</button>
+                  <button className="delete-btn" onClick={() => eliminarPreceptor(prece.id)}>
+                    Eliminar
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {preceptores.map((prece) => (
-                <tr key={prece.id}>
-                  <td>{prece.nombre}</td>
-                  <td>{prece.email}</td>
-                  <td className="opc">
-                    <button className="botmod" onClick={() => handleEditClick(prece)}>
-                      Modificar
-                    </button>
-                    <button className="botelim" onClick={() => eliminarPreceptor(prece.id)}>
-                      Eliminar
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        </div>
+            ))}
+          </tbody>
+        </table>
       )}
 
       {/* POPUP EDITAR */}
