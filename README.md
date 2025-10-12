@@ -42,9 +42,9 @@ Funcionalidades ya implementadas:
     * Formulario de turno.
     
 Cómo clonar el repositorio: 
-Debe copiar el siguiente comando en la terminal de git: git clone lukie-bell/proyecto_totem_6to_2da: Trabajo de web dinamica para totem de la entrada 
+Debe copiar el siguiente comando en la terminal de git: git clone https://github.com/lukie-bell/proyecto_totem_6to_2da.git
 luego cambiar de rama con el comando: git checkout development 
-luego realizar: un git pull
+luego realizar: git pull
 
 Cómo ejecutar el proyecto localmente: Para poder ejecutar el proyecto se debe instalar 
 todas las dependencias del proyecto, para eso se debe colocar el siguiente comando en la 
