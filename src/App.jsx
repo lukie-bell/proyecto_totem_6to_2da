@@ -7,6 +7,7 @@ import AppRouter from './components/AppRutas';
 import PageRecibido from "./pages/PageRecibido";
 import PageEmpleados from "./pages/PageEmpleados";
 import Autentificacion from "./components/login_empleados";
+import ABM from "./pages/ABM";
 
 function App() {
   const [usuario, setUsuario] = useState(null);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Recibido" element={<PageRecibido/>} />
         <Route path="/Empleados" element={<PageEmpleados/>} />
         <Route path="/login" element={<Autentificacion/>} />
+        <Route path="/ABM" element={<ABM/>} />
         <Route path="/*" element={usuario ? <AppRouter usuario={usuario} /> : <Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
