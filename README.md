@@ -41,5 +41,14 @@ Funcionalidades ya implementadas:
     * Inicio de sesión/registro con google.
     * Formulario de turno.
     
+Cómo clonar el repositorio: 
+Debe copiar el siguiente comando en la terminal de git: git clone lukie-bell/proyecto_totem_6to_2da: Trabajo de web dinamica para totem de la entrada 
+luego cambiar de rama con el comando: git checkout development 
+luego realizar: un git pull
+
+Cómo ejecutar el proyecto localmente: Para poder ejecutar el proyecto se debe instalar 
+todas las dependencias del proyecto, para eso se debe colocar el siguiente comando en la 
+terminal de git, npm install. Una vez instaladas todas las dependencias con el comando npm 
+start se activa el hostlocal que permite ver el sitio web. 
 
 Link a Canva, con las pantallas: https://www.canva.com/design/DAGpfA96UQg/5mT65XSUz_M4q2Wg3uVJeQ/edit?utm_content=DAGpfA96UQg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
