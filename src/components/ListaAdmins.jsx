@@ -43,44 +43,32 @@ const ListaAdmins = () => {
       <h2>Lista de Admins</h2>
 
       {admins.length === 0 ? (
-  <p>No hay admins registrados</p>
-) : (
-  <div className="listas-contenedor">
-    <div className="listatabla">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {admins.map((admin) => (
-            <tr key={admin.id}>
-              <td>{admin.nombre}</td>
-              <td>{admin.email}</td>
-              <td className="opc">
-                <button
-                  className="botmod"
-                  onClick={() => handleEditClick(admin)}
-                >
-                  Modificar
-                </button>
-                <button
-                  className="botelim"
-                  onClick={() => eliminarAdmin(admin.id)}
-                >
-                  Eliminar
-                </button>
-              </td>
+        <p>No hay admins registrados</p>
+      ) : (
+        <table className="main-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-)}
+          </thead>
+          <tbody>
+            {admins.map((admin) => (
+              <tr key={admin.id}>
+                <td>{admin.nombre}</td>
+                <td>{admin.email}</td>
+                <td className="actions">
+                  <button className="modify-btn" onClick={() => handleEditClick(admin)}>Modificar</button>
+                  <button className="delete-btn" onClick={() => eliminarAdmin(admin.id)}>
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
 
       {/* POPUP EDITAR */}
       {adminEditando && (
