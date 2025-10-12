@@ -57,15 +57,17 @@ const SignOut = async ()=>{
 
 //Cuerpo del Login
     return (
-        <div className="message-box">
-            <h1>REGISTRARSE</h1>
+        <div className="page-login">
+            <div className="message-box">
+                <h1>REGISTRARSE</h1>
 
-            <button onClick={registroConGoogle} className="ini">
-                <img src="/icons8-logo-de-google-48.png" alt="Logo Google" />
-                <p className="inigoogle">Iniciar sesión con google</p>
-            </button>
+                    <button className="google-button" onClick={registroConGoogle}>
+                        <img className="google" src="/icons8-logo-de-google-48.png" alt="Logo Google" />
+                        <p>Iniciar sesión con Google</p>
+                    </button>
 
-            <button onClick={SignOut}>cancelar</button>
+                    <button onClick={SignOut}>Cancelar</button>
+            </div>
         </div>
     );
 }

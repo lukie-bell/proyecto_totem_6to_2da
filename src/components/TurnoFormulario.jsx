@@ -116,6 +116,7 @@ return (
           <input
             type="text"
             value={nombre}
+            maxLength={20}
             onChange={(e) =>
               setNombre(e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ""))
             }
@@ -127,6 +128,7 @@ return (
           <label>Apellido:</label>
           <input
             type="text"
+            maxLength={20}
             value={apellido}
             onChange={(e) =>
               setApellido(e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ""))
@@ -176,8 +178,7 @@ return (
           <div className="popup-contenido">
             <h3 className="hpop"> ¡Faltan completar campos!</h3>
             <pre>{mensajePopup}</pre>
-           <button
-  onClick={() => {setMostrarPopup(false);setErrores({});}}>Cerrar</button>
+           <button onClick={() => {setMostrarPopup(false);setErrores({});}}>Cerrar</button>
           </div>
         </div>
       )}

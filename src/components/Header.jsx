@@ -38,6 +38,7 @@ const Header = () => {
             <div className="caja1" style={{ display: "flex", alignItems: "center", gap: "80px" }}>
                 <h1 style={{ color: "white", margin: 0 }}>E.P.E.T.Nº20</h1>
                 <img 
+                    className="img-header"
                     src={epet20} 
                     alt="Logo E.P.E.T 20" 
                     style={{ height: "80px", width: "auto", objectFit: "contain", position: "relative", top: "-5px" }}

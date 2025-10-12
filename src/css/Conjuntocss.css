@@ -361,39 +361,52 @@ font-weight: 700;
 
 /* Pantalla Login */
 
-/* Estilo para el cuerpo del login*/
-.message-box {
-    background-color: #333333;
-    border-radius: 15px;
-    padding: 50px;
-    width: 500px;
-    max-width: 90%;
-    text-align: center;
-    font-size: 24px;
-    line-height: 1.5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
-    border: 5px solid #5FA8C0;
-    justify-content: center; /* Centrar horizontal */
-    align-items: center;
-    transform: translate(350px, 100px);
+/* Caja del login */
+.page-login {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;           
 }
 
-/* estilo para las alertas*/
-.ini{ 
-  transform: translate(0px, 30px);
-  align-items: center;        
-  gap: 10px;                  
-  padding: 0px 24px;
-  border: none;
-  border-radius: 10px;
-  background: #F5F5F5;
+/* Contenido del login */
+.message-box {
+  background-color: #333333;
+  border-radius: 15px;
+  padding: 50px;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 5px solid #5FA8C0;
+  color: #fff;
+}
+
+.message-box-recibido p {
+  margin: 20px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;       /* Centra verticalmente el icono y texto */
+  justify-content: center;   /* Centra horizontalmente dentro del botón */
+  background-color: white;
+  padding: 10px 20px;
+  margin: auto;         /* CENTRA el botón horizontalmente */
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  width: auto;
-  height: 39px;
+}
+
+
+.google {
+  width: 30px;
+  height: 30px;
+}
+
+.google-button p {
+  margin: 0;
+  color: #253137
 }
 
 /* estilo para los botones*/
@@ -403,24 +416,19 @@ button{
   align-items: center;    
   gap: 15px;              
   margin-top: 20px;
-  transform: translate(0px, -10px);
 }
 
-img{
+.img-header{
     transform: translate(-92px, 5px);
     width: 30px;
     height: 30px;
 }
 
-.inigoogle{
-   transform: translate(45px, -40px);
-   color: #333;
-}
  /* estilo para el h1 de placeholder*/
 h1{
     font-size: 40px;
+    margin: 0px 10px 40px 10px;
     color:#5FA8C0;
-    grid-template-columns: 1/2; 
 }
 
 /* estilo para los placeholder*/
@@ -456,12 +464,6 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.school-logo {
-    height: 150px;
-    width: 150px;
-    margin-left: 200px;
 }
 
 .school-name {
@@ -502,12 +504,35 @@ p{
     color: #333;
 }
 
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 20px;
-    min-height: calc(100vh - 90px);
+
+/* Pantalla Recibido */
+
+.page-recibido {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;
+}
+
+.message-box-recibido {
+  background-color: #333333;
+  border-radius: 15px;
+  padding: 50px;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 5px solid #5FA8C0;
+  justify-content: center;
+  align-items: center;
+}
+
+.school-logo {
+    height: 150px;
+    width: 150px;
+    margin: auto;
 }
 
 .form-container {
