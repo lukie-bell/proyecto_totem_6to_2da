@@ -1,51 +1,58 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+//ESTE ES EL epprouter.jsx
+import React, { useEffect } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import PageEmpleados from "../pages/PageEmpleados.jsx";
 import Inicio from "../pages/Inicio";
 import Autentificacion from "./login_empleados";
-import "../css/Conjuntocss.css";
 import PageRecibido from "../pages/PageRecibido";
-import PageEmpleados from "../pages/PageEmpleados";
+import ABM from "../pages/ABM";
 
-const AppRouter = ({ user }) => {
+const AppRouter = ({ user, setUser }) => {
   const { rol } = user || {};
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handlePopState = () => {
-      if (user && ['admin', 'staff'].includes(user.rol)) {
-        navigate(window.location.pathname, { replace: true });
+    const handlePopState = (e) => {
+      if (user && ["admins", "preceptores"].includes(user.rol)) {
+        e.preventDefault();
+        window.history.pushState(null, "", window.location.pathname);
       }
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, [user, navigate]);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [user]);
+
+  const redirigirSiLogueado = () => {
+    if (!user || !rol) return <Autentificacion setUser={setUser} />;
+    if (rol === "admins") return <Navigate to="/ABM" replace />;
+    if (rol === "preceptores") return <Navigate to="/Empleados" replace />;
+    return <Navigate to="/" replace />;
+  };
 
   return (
     <Routes>
-      {/* ✅ Inicio siempre accesible */}
+      {/*rutas sin logeo */}
       <Route path="/" element={<Inicio />} />
+      <Route path="/recibido" element={<PageRecibido />} />
+      <Route path="/login" element={redirigirSiLogueado()} />
 
-      {rol === 'admin' && (
+      {/*rutas para los admiSSS */}
+      {rol === "admins" && (
         <>
-          <Route path="/Recibido" element={<PageRecibido />} />
+          <Route path="/Empleados" element={<PageEmpleados />} />
+          <Route path="/ABM" element={<ABM />} />
+        </>
+      )}
+
+      {/*rutas para los preseptorESSSS */}
+      {rol === "preceptores" && (
+        <>
           <Route path="/Empleados" element={<PageEmpleados />} />
         </>
       )}
 
-      {rol === 'staff' && (
-        <>
-          <Route path="/Empleados" element={<PageEmpleados />} />
-        </>
-      )}
-
-      {rol === null && (
-        <>
-          <Route path="/Recibido" element={<PageRecibido />} />
-        </>
-      )}
-
-      {/* Fallback a inicio para cualquier ruta no válida */}
-      <Route path="*" element={<Navigate to="/" />} />
+      {/* Ruta por defecto */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

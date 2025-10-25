@@ -1,31 +1,15 @@
-//ELi: recoratorio de tener que crear la logica para cuando se registren los preceptores !! -_-
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Inicio from "./pages/Inicio"
-import "../src/css/Conjuntocss.css";
-import AppRouter from './components/AppRutas';
-import PageRecibido from "./pages/PageRecibido";
-import PageEmpleados from "./pages/PageEmpleados";
-import Autentificacion from "./components/login_empleados";
-import ABM from "./pages/ABM";
+import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./components/AppRutas";
 
 function App() {
-  const [usuario, setUsuario] = useState(null);
+  const [user, setUser] = useState(null);
 
-  //ELI: lineas comentas por numero 12:Es la primera pantalla 13: Lanza activa la siguiente pantalla :> FUNCIONO SE PUDOOOOOOO 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Inicio/>} />
-        <Route path="/Recibido" element={<PageRecibido/>} />
-        <Route path="/Empleados" element={<PageEmpleados/>} />
-        <Route path="/login" element={<Autentificacion/>} />
-        <Route path="/ABM" element={<ABM/>} />
-        <Route path="/*" element={usuario ? <AppRouter usuario={usuario} /> : <Navigate to="/login" />} />
-      </Routes>
+      <AppRouter user={user} setUser={setUser} />
     </BrowserRouter>
   );
 }
 
 export default App;
-
