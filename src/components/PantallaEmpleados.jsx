@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from "react"; 
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import "../css/Conjuntocss.css";
 import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
-import { db } from "../config/firebase";
+import { db, autenticacion} from "../config/firebase";
+import { signOut } from "firebase/auth";
 
 const PantallaEmpleados = () => {
   const location = useLocation();
   const { nombre, dni, fecha, motivo, aclaracion } = location.state || {};
+  const navigate = useNavigate();
 
+  //agus:boton de cerrar sesion
+  const cerrarSesion = async () => {
+  try {
+    await signOut(autenticacion);
+    navigate("/");
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+  }
+
+};
   // seba: Guardado de las listas 
   const [turnos, setTurnos] = useState([]);
   const [filtro, setFiltro] = useState("");
@@ -142,6 +154,7 @@ const PantallaEmpleados = () => {
               ))
             )}
           </div>
+            <button onClick={cerrarSesion} style={{backgroundColor: "#e74c3c",}}>Cerrar Sesion</button>
         </div>
       </div>
     </div>
