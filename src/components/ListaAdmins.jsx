@@ -40,7 +40,7 @@ const ListaAdmins = () => {
 
   return (
     <div>
-      <h2>Lista de Admins</h2>
+      <h2 style={{color: "#ffffff" }}>Lista de Admins</h2>
 
       {admins.length === 0 ? (
         <p>No hay admins registrados</p>

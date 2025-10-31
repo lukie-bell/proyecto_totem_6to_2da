@@ -41,7 +41,7 @@ const ListaPreceptores = () => {
 
   return (
     <div>
-      <h2>Lista de Preceptores</h2>
+      <h2 style={{color: "#ffffff" }}>Lista de Preceptores</h2>
 
       {preceptores.length === 0 ? (
         <p>No hay preceptores registrados</p>
