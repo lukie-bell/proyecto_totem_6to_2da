@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/lukie-bell/proyecto_totem_6to_2da.git/static/css/main.a0eff46d.css",
+    "main.js": "/lukie-bell/proyecto_totem_6to_2da.git/static/js/main.23506927.js",
+    "static/media/epet20.png": "/lukie-bell/proyecto_totem_6to_2da.git/static/media/epet20.c78048d452a27fb5f2e7.png",
+    "index.html": "/lukie-bell/proyecto_totem_6to_2da.git/index.html",
+    "main.a0eff46d.css.map": "/lukie-bell/proyecto_totem_6to_2da.git/static/css/main.a0eff46d.css.map",
+    "main.23506927.js.map": "/lukie-bell/proyecto_totem_6to_2da.git/static/js/main.23506927.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0eff46d.css",
+    "static/js/main.23506927.js"
+  ]
+}
