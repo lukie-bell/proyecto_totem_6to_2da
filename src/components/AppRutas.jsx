@@ -8,19 +8,13 @@ import PageRecibido from "../pages/PageRecibido";
 import ABM from "../pages/ABM";
 
 const AppRouter = ({ user, setUser }) => {
-  const { rol } = user || {};
   const navigate = useNavigate();
+  const { rol } = user || {};
 
   useEffect(() => {
-    const handlePopState = (e) => {
-      if (user && ["admins", "preceptores"].includes(user.rol)) {
-        e.preventDefault();
-        window.history.pushState(null, "", window.location.pathname);
-      }
-    };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, [user]);
+    if (rol === "admins") navigate("/ABM");
+    else if (rol === "preceptores") navigate("/Empleados");
+  }, [rol, navigate]);
 
   const redirigirSiLogueado = () => {
     if (!user || !rol) return <Autentificacion setUser={setUser} />;
