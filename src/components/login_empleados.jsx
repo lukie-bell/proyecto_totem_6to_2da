@@ -1,7 +1,7 @@
 // login_empleados.jsx
 
 //dependecias
-import React, { useEffect,  setUser} from "react";
+import React, { useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { autenticacion, autenticacionGoogle, db } from "../config/firebase";

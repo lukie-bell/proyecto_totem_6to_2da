@@ -6,7 +6,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <BrowserRouter basename="/proyecto_totem_6to_2da">
+    <BrowserRouter>
       <AppRouter user={user} setUser={setUser} />
     </BrowserRouter>
   );
