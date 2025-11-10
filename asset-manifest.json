@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/proyecto_totem_6to_2da/static/css/main.04ec12c2.css",
-    "main.js": "/proyecto_totem_6to_2da/static/js/main.ce8e91f3.js",
-    "static/media/epet20.png": "/proyecto_totem_6to_2da/static/media/epet20.c78048d452a27fb5f2e7.png",
-    "index.html": "/proyecto_totem_6to_2da/index.html",
-    "main.04ec12c2.css.map": "/proyecto_totem_6to_2da/static/css/main.04ec12c2.css.map",
-    "main.ce8e91f3.js.map": "/proyecto_totem_6to_2da/static/js/main.ce8e91f3.js.map"
+    "main.css": "/Proyecto_Totem_Usuarios/static/css/main.04ec12c2.css",
+    "main.js": "/Proyecto_Totem_Usuarios/static/js/main.cd1ced15.js",
+    "static/media/epet20.png": "/Proyecto_Totem_Usuarios/static/media/epet20.c78048d452a27fb5f2e7.png",
+    "index.html": "/Proyecto_Totem_Usuarios/index.html",
+    "main.04ec12c2.css.map": "/Proyecto_Totem_Usuarios/static/css/main.04ec12c2.css.map",
+    "main.cd1ced15.js.map": "/Proyecto_Totem_Usuarios/static/js/main.cd1ced15.js.map"
   },
   "entrypoints": [
     "static/css/main.04ec12c2.css",
-    "static/js/main.ce8e91f3.js"
+    "static/js/main.cd1ced15.js"
   ]
 }
